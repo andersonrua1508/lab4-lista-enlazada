@@ -63,7 +63,22 @@ class LinkedList:
         Returns:
             True si el nodo fue eliminado, False si no se encontró.
         """
-        raise NotImplementedError("Equipo B debe implementar delete()")
+        # Esqueleto de referencia
+    def delete(self, data):
+        if self.head is None:
+            return False
+        if self.head.data == data:
+            # eliminar head
+            self.head = self.head.next
+            return True
+        current = self.head
+        while current.next is not None:
+            if current.next.data == data:
+                # saltar el nodo siguiente
+                current.next = current.next.next
+                return True
+            current = current.next
+        return False
 
     # ------------------------------------------------------------------ #
     # TODO — Equipo C: rama feature/search                                #
