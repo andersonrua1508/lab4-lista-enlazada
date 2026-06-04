@@ -91,3 +91,40 @@ def test_append_orden_preservado():
         assert current.data == expected
         current = current.next
 
+
+
+
+# ------------------------------------------------------------------ #
+# Pruebas Equipo B — delete                                           #
+# ------------------------------------------------------------------ #
+
+def test_delete_elemento_existente():
+    ll = LinkedList()
+    ll.append(1)
+    ll.append(2)
+    ll.append(3)
+    resultado = ll.delete(2)
+    assert resultado is True
+    assert str(ll) == "1 -> 3"
+
+
+def test_delete_head():
+    ll = LinkedList()
+    ll.append(10)
+    ll.append(20)
+    ll.delete(10)
+    assert ll.head.data == 20
+
+
+def test_delete_elemento_inexistente():
+    ll = LinkedList()
+    ll.append(5)
+    resultado = ll.delete(99)
+    assert resultado is False
+    assert len(ll) == 1
+
+
+def test_delete_lista_vacia():
+    ll = LinkedList()
+    assert ll.delete(1) is False
+
